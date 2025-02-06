@@ -7,7 +7,7 @@ class MmrewardController extends GetxController {
   RxString date = ''.obs;
   var rewardData = RewardModel(data: []).obs;
   RxBool isLoading = true.obs;
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
   RxBool isClaimed = false.obs;
 
   @override

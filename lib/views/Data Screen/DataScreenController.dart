@@ -6,7 +6,7 @@ import '../../model/gamemodel.dart';
 class DataScreenController extends GetxController {
   RxList<GameItemData> alldata = <GameItemData>[].obs;
   final RxString _name = ''.obs;
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
 
   @override
   void onInit() {

@@ -10,6 +10,7 @@ class GifsController extends GetxController {
   // Total coins stored reactively
   RxInt totalCoins = 0.obs;
   RxInt index = 0.obs;
+  String Acme = 'acme';
   int rewardCoins = 150;
 
   @override

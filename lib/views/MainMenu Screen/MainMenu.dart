@@ -41,7 +41,7 @@ class MenuScreen extends StatelessWidget {
                   "Main Menu",
                   style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'opensans',
+                    fontFamily: 'acme',
                     fontSize: 30.r,
                     fontWeight: FontWeight.bold,
                   ),
@@ -88,7 +88,7 @@ class MenuScreen extends StatelessWidget {
                                           width: 3.r, color: Colors.black),
                                     ),
                                     margin: EdgeInsets.all(4.r),
-                                    padding: EdgeInsets.all(8.r),
+                                    padding: EdgeInsets.all(6.r),
                                     child: ListTile(
                                       onTap: () {
                                         if (index == 8) {
@@ -229,13 +229,14 @@ class MenuScreen extends StatelessWidget {
                                       },
                                       leading: Image(
                                         image: AssetImage(menulist.images),
+                                        height: 50.r,
                                       ),
                                       title: Text(
                                         menulist.name.toString(),
                                         style: TextStyle(
-                                          fontFamily: 'opensans',
-                                          fontSize: 25.r,
-                                          fontWeight: FontWeight.w600,
+                                          fontFamily: 'acme',
+                                          fontSize: 30.r,
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.black87,
                                         ),
                                       ),

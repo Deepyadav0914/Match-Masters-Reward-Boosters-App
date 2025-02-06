@@ -6,6 +6,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import 'package:reawrdapp/AdPlugin/Ads/FullScreen/Ads.dart';
 import '../../AdPlugin/Ads/Native/NativeRN.dart';
+import '../../generated/assets.dart';
 import '../../main.dart';
 import '../../model/gifmodel.dart';
 import 'GifsController.dart';
@@ -44,7 +45,7 @@ class _GifsScreenState extends State<GifsScreen> {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25.r,
-                  fontFamily: 'OpenSans',
+                  fontFamily: 'acme',
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -64,16 +65,16 @@ class _GifsScreenState extends State<GifsScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/images/reward.png',
-                          height: 22.r,
+                          Assets.imagesReward,
+                          height: 25.r,
                         ),
-                        10.horizontalSpace,
+                        5.horizontalSpace,
                         Obx(() => Text(
                               '${controller.totalCoins.value}',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontFamily: 'OpenSans',
-                                fontSize: 18.r,
+                                fontFamily: 'acme',
+                                fontSize: 20.r,
                                 fontWeight: FontWeight.bold,
                               ),
                             )),
@@ -133,7 +134,7 @@ class _GifsScreenState extends State<GifsScreen> {
 
                       return SafeArea(
                         child: SingleChildScrollView(
-                          physics:  const AlwaysScrollableScrollPhysics(),
+                          physics: const AlwaysScrollableScrollPhysics(),
                           child: Column(
                             children: [
                               allgifs.first.isNotEmpty
@@ -143,10 +144,11 @@ class _GifsScreenState extends State<GifsScreen> {
                                 height: (allgifs.length / 2).ceil() * 200.r,
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                      vertical: 14.r, horizontal: 10.r),
+                                      vertical: 10.r, horizontal: 10.r),
                                   child: GridView.builder(
                                     shrinkWrap: true,
-                                    physics: const NeverScrollableScrollPhysics(),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
@@ -303,7 +305,8 @@ class _GifsScreenState extends State<GifsScreen> {
                                                                     .center,
                                                             children: [
                                                               Image.asset(
-                                                                'assets/images/lock.png',
+                                                                Assets
+                                                                    .imagesLock,
                                                                 height: 60.r,
                                                               ),
                                                               8.verticalSpace,
@@ -313,19 +316,20 @@ class _GifsScreenState extends State<GifsScreen> {
                                                                         .center,
                                                                 children: [
                                                                   Image.asset(
-                                                                    'assets/images/reward.png',
+                                                                    Assets
+                                                                        .imagesReward,
                                                                     height:
-                                                                        25.r,
+                                                                        28.r,
                                                                   ),
-                                                                  5.horizontalSpace,
+                                                                  4.horizontalSpace,
                                                                   Text(
                                                                       '150 Token',
                                                                       style: TextStyle(
                                                                           color: Colors
                                                                               .white,
                                                                           fontFamily:
-                                                                              'OpenSans',
-                                                                          fontSize: 20
+                                                                              'acme',
+                                                                          fontSize: 23
                                                                               .r,
                                                                           fontWeight:
                                                                               FontWeight.bold)),

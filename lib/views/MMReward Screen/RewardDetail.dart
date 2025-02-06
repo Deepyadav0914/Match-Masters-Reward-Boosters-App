@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
+import '../../generated/assets.dart';
 import '../../main.dart';
 import '../Gifs Screen/GifsController.dart';
 import 'RewardDetailController.dart';
@@ -44,7 +45,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.r,
-              fontFamily: 'OpenSans',
+              fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -69,7 +70,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                   children: [
                     Center(
                       child: Image.asset(
-                        'assets/images/reward.png',
+                        Assets.imagesReward,
                         height: 150.r,
                         fit: BoxFit.fill,
                       ),
@@ -79,8 +80,8 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       controller.title,
                       style: TextStyle(
                         color: Colors.black,
-                        fontFamily: 'OpenSans',
-                        fontSize: 22.r,
+                        fontFamily: 'acme',
+                        fontSize: 25.r,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -88,8 +89,8 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                     Text(
                       controller.formattedDate,
                       style: TextStyle(
-                        fontSize: 22.r,
-                        fontFamily: 'OpenSans',
+                        fontSize: 25.r,
+                        fontFamily: 'acme',
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -100,7 +101,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       softWrap: true,
                       style: TextStyle(
                         fontSize: 22.r,
-                        fontFamily: 'OpenSans',
+                        fontFamily:'acme',
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -170,7 +171,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       'Note: After claiming your reward, you will be automatically redirected to the match Masters game. Enjoy your rewards and happy gaming!',
                       style: TextStyle(
                         fontSize: 22.r,
-                        fontFamily: 'OpenSans',
+                        fontFamily: 'acme',
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.bold,
                       ),
@@ -215,7 +216,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                 label,
                 style: TextStyle(
                   fontSize: 24.r,
-                  fontFamily: 'OpenSans',
+                  fontFamily: 'acme',
                   color: onPressed == null ? Colors.grey : Colors.black87,
                   fontWeight: FontWeight.bold,
                 ),

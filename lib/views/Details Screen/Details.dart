@@ -42,7 +42,7 @@ class Detailscreen extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.r,
-              fontFamily: 'opensans',
+              fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -91,7 +91,7 @@ class Detailscreen extends StatelessWidget {
                                     controller.item!.title.toString(),
                                     style: TextStyle(
                                         fontSize: 25.r,
-                                        fontFamily: 'opensans',
+                                        fontFamily: 'acme',
                                         color: Colors.black87,
                                         shadows: [
                                           Shadow(
@@ -106,7 +106,7 @@ class Detailscreen extends StatelessWidget {
                               controller.item!.title != ''
                                   ? Padding(
                                       padding: EdgeInsets.only(
-                                          left: 15.r, right: 15.r),
+                                          left: 15.r, right: 15.r,bottom: 15.r),
                                       child: Divider(
                                         color: Colors.black,
                                         thickness: 3.r,
@@ -117,8 +117,8 @@ class Detailscreen extends StatelessWidget {
                                 child: Text(
                                   controller.item!.description,
                                   style: TextStyle(
-                                      fontSize: 22.r,
-                                      fontFamily: 'opensans',
+                                      fontSize: 25.r,
+                                      fontFamily: 'acme',
                                       color: Colors.black87,
                                       shadows: [
                                         Shadow(

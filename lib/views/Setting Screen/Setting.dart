@@ -10,7 +10,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _SettingScreenState extends State<SettingScreen> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 25.r,
-            fontFamily: opensans,
+            fontFamily: 'acme',
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -72,7 +72,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     border: Border.all(width: 3.r, color: Colors.black),
                   ),
                   margin: EdgeInsets.all(4.r),
-                  padding: EdgeInsets.all(6.r),
+                  padding: EdgeInsets.all(4.r),
                   child: ListTile(
                     onTap: () {
                       if (index == 0) {
@@ -84,8 +84,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       child: Text(
                         menulist.name.toString(),
                         style: TextStyle(
-                          fontFamily: opensans,
-                          fontSize: 25.r,
+                          fontFamily: 'acme',
+                          fontSize: 28.r,
                           fontWeight: FontWeight.w600,
                           color: Colors.black87,
                         ),

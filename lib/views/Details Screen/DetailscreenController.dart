@@ -4,7 +4,7 @@ import '../../model/gamemodel.dart';
 
 class DetailscreenController extends GetxController {
   GameItemData? item;
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
 
   @override
   void onInit() {

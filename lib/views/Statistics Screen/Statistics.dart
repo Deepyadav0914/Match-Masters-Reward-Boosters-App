@@ -192,6 +192,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
+import '../../generated/assets.dart';
 import '../../main.dart';
 import '../Gifs Screen/GifsController.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Native/NativeRN.dart'; // Assuming NativeRN exists here
@@ -206,7 +207,7 @@ class StatisticsScreen extends StatefulWidget {
 }
 
 class _StatisticsScreenState extends State<StatisticsScreen> {
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
   final gifsController = Get.put(GifsController());
 
   @override
@@ -243,7 +244,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.r,
-              fontFamily: opensans,
+              fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -300,8 +301,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                             child: Text(
                               menulist.name.toString(),
                               style: TextStyle(
-                                fontFamily: opensans,
-                                fontSize: 22.r,
+                                fontFamily: 'acme',
+                                fontSize: 25.r,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black87,
                               ),
@@ -316,20 +317,20 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                             children: [
                               menulist.name == 'Unlocked GIFs'
                                   ? Image.asset(
-                                      'assets/images/gif.png',
-                                      height: 25.r,
+                                      Assets.imagesGif,
+                                      height: 28.r,
                                     )
                                   : Image.asset(
-                                      'assets/images/reward.png',
-                                      height: 25.r,
+                                      Assets.imagesReward,
+                                      height: 28.r,
                                     ),
                               10.horizontalSpace,
                               menulist.name == 'Unlocked GIFs'
                                   ? Text(
-                                      '${unlockGifs.length}/$totalgif',
+                                      '${unlockGifs.length} / $totalgif',
                                       style: TextStyle(
-                                        fontFamily: opensans,
-                                        fontSize: 22.r,
+                                        fontFamily: 'acme',
+                                        fontSize: 25.r,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black87,
                                       ),
@@ -338,8 +339,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       ? Text(
                                           '${gifsController.totalCoins.value}',
                                           style: TextStyle(
-                                            fontFamily: opensans,
-                                            fontSize: 22.r,
+                                            fontFamily: 'acme',
+                                            fontSize: 25.r,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black87,
                                           ),
@@ -349,8 +350,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                           ? Text(
                                               '${claimedRewards.length}',
                                               style: TextStyle(
-                                                fontFamily: opensans,
-                                                fontSize: 22.r,
+                                                fontFamily: 'acme',
+                                                fontSize: 25.r,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black87,
                                               ),

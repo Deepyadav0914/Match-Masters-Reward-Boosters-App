@@ -30,7 +30,7 @@ class GifsDetailScreen extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.r,
-              fontFamily: controller.opensans,
+              fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -111,7 +111,7 @@ class GifsDetailScreen extends StatelessWidget {
                                     'Download',
                                     style: TextStyle(
                                       fontSize: 25.r,
-                                      fontFamily: controller.opensans,
+                                      fontFamily: 'acme',
                                       color: Colors.blue,
                                       fontWeight: FontWeight.bold,
                                     ),

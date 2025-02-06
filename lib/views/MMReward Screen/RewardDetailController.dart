@@ -7,7 +7,7 @@ class RewardDetailController extends GetxController {
   RxString date = ''.obs;
   RxString rewardKey = ''.obs;
   RxInt index = 0.obs;
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
   int rewardCoins = 150;
 
   @override

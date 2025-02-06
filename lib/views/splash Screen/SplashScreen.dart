@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:get/get.dart';
-import '../MainMenu Screen/MainMenu.dart';
+
+import '../../generated/assets.dart';
 
 class SplashScreen extends StatefulWidget {
-
-  static const String routeName='/SplashScreen';
+  static const String routeName = '/SplashScreen';
 
   const SplashScreen({super.key});
 
@@ -44,18 +43,18 @@ class _SplashScreenState extends State<SplashScreen> {
           // Center content
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 30.verticalSpace,
                 Image.asset(
-                  'assets/images/pig.png',
-                  width: 600.r,
-                  height: 500.r,
+                  Assets.imagesPig,
+                  width: double.infinity.r,
+                  height: 400.r,
                 ),
-                20.verticalSpace,
+                30.verticalSpace,
                 LoadingAnimationWidget.dotsTriangle(
                   color: Colors.white,
-                  size: 40.sp,
+                  size: 40.r,
                 ),
               ],
             ),

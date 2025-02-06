@@ -5,6 +5,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import 'package:reawrdapp/AdPlugin/Ads/FullScreen/Ads.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Native/NativeRN.dart';
+import '../../generated/assets.dart';
 import '../../main.dart';
 import 'MmrewardController.dart';
 import 'RewardDetail.dart';
@@ -40,7 +41,7 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.r,
-              fontFamily: 'OpenSans',
+              fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -93,7 +94,7 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                         date,
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'OpenSans',
+                          fontFamily: 'acme',
                           fontSize: 25.r,
                           fontWeight: FontWeight.bold,
                         ),
@@ -166,8 +167,6 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: 52.r,
-                                          width: 50.r,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                             boxShadow: [
@@ -181,7 +180,9 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                           child: Padding(
                                             padding: EdgeInsets.only(top: 5.r),
                                             child: Image.asset(
-                                                'assets/images/reward.png'),
+                                              Assets.imagesReward,
+                                              height: 45.r,
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -190,8 +191,8 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                             reward.title,
                                             style: TextStyle(
                                               color: Colors.black,
-                                              fontFamily: 'OpenSans',
-                                              fontSize: 15.r,
+                                              fontFamily: 'acme',
+                                              fontSize: 16.r,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -206,7 +207,7 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                                           25)),
                                               textStyle: TextStyle(
                                                 fontSize: 18.r,
-                                                fontFamily: 'OpenSans',
+                                                fontFamily: 'acme',
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),

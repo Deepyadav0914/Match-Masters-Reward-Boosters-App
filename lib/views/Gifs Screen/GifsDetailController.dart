@@ -11,7 +11,7 @@ import 'package:saver_gallery/saver_gallery.dart';
 
 class GifsDetailController extends GetxController {
   final RxString _sticker = ''.obs;
-  String opensans = 'OpenSans';
+  String Acme = 'acme';
 
   /// Requests necessary permissions based on the platform.
   Future<bool> checkAndRequestPermissions({required bool skipIfExists}) async {
