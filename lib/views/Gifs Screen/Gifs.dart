@@ -45,6 +45,12 @@ class _GifsScreenState extends State<GifsScreen> {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25.r,
+                  shadows: [
+                    Shadow(
+                        color: Colors.black,
+                        offset: Offset(1.r, 1.r),
+                        blurRadius: 3.r)
+                  ],
                   fontFamily: 'acme',
                   fontWeight: FontWeight.bold,
                 ),

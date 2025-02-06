@@ -44,8 +44,14 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
             'MM Reward',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25.r,
+              fontSize: 27.r,
               fontFamily: 'acme',
+              shadows: [
+                Shadow(
+                    color: Colors.black,
+                    offset: Offset(1.r, 1.r),
+                    blurRadius: 3.r)
+              ],
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -82,6 +88,12 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                         color: Colors.black,
                         fontFamily: 'acme',
                         fontSize: 25.r,
+                        shadows: [
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(1.r, 1.r),
+                              blurRadius: 3.r)
+                        ],
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -91,6 +103,12 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       style: TextStyle(
                         fontSize: 25.r,
                         fontFamily: 'acme',
+                        shadows: [
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(1.r, 1.r),
+                              blurRadius: 3.r)
+                        ],
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
                       ),
@@ -103,6 +121,12 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                         fontSize: 22.r,
                         fontFamily:'acme',
                         color: Colors.black87,
+                        shadows: [
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(1.r, 1.r),
+                              blurRadius: 3.r)
+                        ],
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -172,6 +196,12 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       style: TextStyle(
                         fontSize: 22.r,
                         fontFamily: 'acme',
+                        shadows: [
+                          Shadow(
+                              color: Colors.black,
+                              offset: Offset(1.r, 1.r),
+                              blurRadius: 3.r)
+                        ],
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.bold,
                       ),

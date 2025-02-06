@@ -43,6 +43,12 @@ class MenuScreen extends StatelessWidget {
                     color: Colors.black,
                     fontFamily: 'acme',
                     fontSize: 30.r,
+                    shadows: [
+                      Shadow(
+                          color: Colors.white,
+                          offset: Offset(2.r, 1.r),
+                          blurRadius: 4.r)
+                    ],
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -236,6 +242,12 @@ class MenuScreen extends StatelessWidget {
                                         style: TextStyle(
                                           fontFamily: 'acme',
                                           fontSize: 30.r,
+                                          shadows: [
+                                            Shadow(
+                                                color: Colors.grey,
+                                                offset: Offset(1.r, 1.r),
+                                                blurRadius: 3.r)
+                                          ],
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black87,
                                         ),
