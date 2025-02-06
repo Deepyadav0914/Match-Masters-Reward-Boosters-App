@@ -178,8 +178,8 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Colors.grey,
-                                                blurRadius: 10.r,
-                                                offset: Offset(4.r, 4.r),
+                                                blurRadius: 7.r,
+                                                offset: Offset(4.r, 3.r),
                                               ),
                                             ],
                                           ),
@@ -191,16 +191,20 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.only(top: 10.r),
-                                          child: Text(
-                                            reward.title,
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontFamily: 'acme',
-                                              fontSize: 16.r,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                        7.verticalSpace,
+                                        Text(
+                                          reward.title,
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'acme',
+                                            fontSize: 18.r,
+                                            shadows: [
+                                              Shadow(
+                                                  color: Colors.black38,
+                                                  offset: Offset(1.r, 1.r),
+                                                  blurRadius: 3.r)
+                                            ],
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         Padding(

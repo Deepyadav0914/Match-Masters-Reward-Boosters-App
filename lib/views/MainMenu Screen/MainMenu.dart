@@ -47,7 +47,7 @@ class MenuScreen extends StatelessWidget {
                       Shadow(
                           color: Colors.white,
                           offset: Offset(2.r, 1.r),
-                          blurRadius: 4.r)
+                          blurRadius: 3.r)
                     ],
                     fontWeight: FontWeight.bold,
                   ),
@@ -244,8 +244,8 @@ class MenuScreen extends StatelessWidget {
                                           fontSize: 30.r,
                                           shadows: [
                                             Shadow(
-                                                color: Colors.grey,
-                                                offset: Offset(1.r, 1.r),
+                                                color: Colors.white,
+                                                offset: Offset(2.r, 1.r),
                                                 blurRadius: 3.r)
                                           ],
                                           fontWeight: FontWeight.bold,
