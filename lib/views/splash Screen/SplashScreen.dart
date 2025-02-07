@@ -49,12 +49,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 Image.asset(
                   Assets.imagesPig,
                   width: double.infinity.r,
-                  height: 400.r,
+                  height: 350.r,
                 ),
                 30.verticalSpace,
                 LoadingAnimationWidget.dotsTriangle(
                   color: Colors.white,
-                  size: 40.r,
+                  size: 35.r,
                 ),
               ],
             ),

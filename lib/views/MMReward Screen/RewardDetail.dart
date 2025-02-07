@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
+import 'package:reawrdapp/AdPlugin/Utils/Extensions.dart';
 import '../../generated/assets.dart';
 import '../../main.dart';
 import '../Gifs Screen/GifsController.dart';
@@ -119,7 +120,7 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                       softWrap: true,
                       style: TextStyle(
                         fontSize: 22.r,
-                        fontFamily:'acme',
+                        fontFamily: 'acme',
                         color: Colors.black87,
                         shadows: [
                           Shadow(
@@ -139,55 +140,65 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                           isClaime
                               ? null
                               : () {
-                                  Get.dialog(
-                                    AlertDialog(
-                                      title: Text('Confirm Claim'),
-                                      content: Text(
-                                          'Are you sure you want to claim this reward?'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () => Get.back(),
-                                          child: Text('Cancel'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              claimedRewards[uniqueKey] = true;
-                                              box.write("claimedRewards",
-                                                  claimedRewards);
-                                            });
+                                  'claimBtn'.performScreenAction(
+                                    context: context,
+                                    onComplete: () {
+                                      Get.dialog(
+                                        AlertDialog(
+                                          title: Text('Confirm Claim'),
+                                          content: Text(
+                                              'Are you sure you want to claim this reward?'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Get.back(),
+                                              child: Text('Cancel'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  claimedRewards[uniqueKey] =
+                                                      true;
+                                                  box.write("claimedRewards",
+                                                      claimedRewards);
+                                                });
 
-                                            final gifsController =
-                                                Get.put(GifsController());
-                                            gifsController.collectCoins(
-                                                controller.rewardCoins);
+                                                final gifsController =
+                                                    Get.put(GifsController());
+                                                gifsController.collectCoins(
+                                                    controller.rewardCoins);
 
-                                            Get.back();
-                                            Get.snackbar(
-                                              "Success!",
-                                              "You have collected ${controller.rewardCoins} coins!",
-                                              snackPosition: SnackPosition.TOP,
-                                              icon: Icon(Icons.done_outline,
-                                                  color: Colors.white),
-                                              duration:
-                                                  const Duration(seconds: 3),
-                                              padding: EdgeInsets.all(10.r),
-                                              margin: EdgeInsets.all(10.r),
-                                              backgroundColor: Colors.green,
-                                              forwardAnimationCurve:
-                                                  Curves.easeOutBack,
-                                              colorText: Colors.white,
-                                            );
-                                          },
-                                          child: Text('Claim'),
+                                                Get.back();
+                                                Get.snackbar(
+                                                  "Success!",
+                                                  "You have collected ${controller.rewardCoins} coins!",
+                                                  snackPosition:
+                                                      SnackPosition.TOP,
+                                                  icon: Icon(Icons.done_outline,
+                                                      color: Colors.white),
+                                                  duration: const Duration(
+                                                      seconds: 3),
+                                                  padding: EdgeInsets.all(10.r),
+                                                  margin: EdgeInsets.all(10.r),
+                                                  backgroundColor: Colors.green,
+                                                  forwardAnimationCurve:
+                                                      Curves.easeOutBack,
+                                                  colorText: Colors.white,
+                                                );
+                                              },
+                                              child: Text('Claim'),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      );
+                                    },
                                   );
                                 },
                         ),
                         15.horizontalSpace,
-                        _buildActionButton('Share', () {}),
+                        _buildActionButton('Share', () {
+                          'shareBtn'.performScreenAction(
+                              context: context, onComplete: () {});
+                        }),
                       ],
                     ),
                     15.verticalSpace,

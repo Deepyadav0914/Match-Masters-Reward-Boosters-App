@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
+import '../../AdPlugin/Ads/FullScreen/Ads.dart';
 import 'GifsDetailController.dart';
 
 class GifsDetailScreen extends StatelessWidget {
-
-  static const String routeName='/GifsDetailScreen';
+  static const String routeName = '/GifsDetailScreen';
 
   GifsDetailScreen({super.key});
 
@@ -88,7 +88,11 @@ class GifsDetailScreen extends StatelessWidget {
                       margin:
                           EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
                       child: GestureDetector(
-                        onTap: () => controller.saveGif(),
+                        onTap: () => AdsRN().showFullScreen(
+                            context: context,
+                            onComplete: () {
+                              controller.saveGif();
+                            }),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24.r),
@@ -100,7 +104,8 @@ class GifsDetailScreen extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(vertical: 5.r),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
                                     Icons.download,

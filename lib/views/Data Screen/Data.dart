@@ -61,23 +61,23 @@ class DataScreen extends StatelessWidget {
                 controller.name == 'Tips & Tricks' || controller.name == 'FAQs'
                     ? _buildListView()
                     : Expanded(
-                        child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                          ),
-                          itemCount: controller.alldata.length,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10.r, horizontal: 15.r),
-                          itemBuilder: (context, index) {
-                            final item = controller.alldata[index];
-                            if (_buildListTile(item, index, context) == 3) {
-                              return NativeRnWidget();
-                            }
-                            return _buildGridTile(item, index, context);
-                          },
-                        ),
-                      ),
+                  child: GridView.builder(
+                    gridDelegate:
+                    SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    itemCount: controller.alldata.length,
+                    padding: EdgeInsets.symmetric(
+                        vertical: 10.r, horizontal: 15.r),
+                    itemBuilder: (context, index) {
+                      final item = controller.alldata[index];
+                      if (_buildListTile(item, index, context) == 2) {
+                        return NativeRnWidget();
+                      }
+                      return _buildGridTile(item, index, context);
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -95,7 +95,7 @@ class DataScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15.r, horizontal: 15.r),
         itemBuilder: (context, index) {
           final item = controller.alldata[index];
-          if (index == 3) {
+          if (index == 2) {
             return NativeRnWidget();
           }
           return _buildListTile(item, index, context);
@@ -217,10 +217,9 @@ class DataScreen extends StatelessWidget {
 class NativeRnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Column(children: [NativeRN(parentContext: context)]),
-      ),
+    return Center(
+      child: Column(children: [
+        NativeRN(parentContext: context)]),
     );
   }
 }
