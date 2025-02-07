@@ -164,15 +164,15 @@ class _GifsScreenState extends State<GifsScreen> {
                             itemCount: allgifs.length,
                             adsIndex: 1,
                             adsWidget: NativeRN(parentContext: context),
-
-                            itemPadding: EdgeInsets.all(10.r),
+                            itemPadding: EdgeInsets.all(6.r),
                             itemWidget: (BuildContext context, int index) {
                               String uniqueKey = "$index";
                               print("uniqueKey == $uniqueKey");
                               bool isLocked = unlockGifs[uniqueKey] ?? false;
 
                               return Padding(
-                                padding:  EdgeInsets.only(right:6.r,left: 6.r,top: 5.r),
+                                padding: EdgeInsets.only(
+                                    right: 10.r, left: 10.r, top: 10.r),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -187,7 +187,6 @@ class _GifsScreenState extends State<GifsScreen> {
                                       ),
                                     ],
                                   ),
-
                                   child: GestureDetector(
                                     onTap: () {
                                       AdsRN().showFullScreen(
