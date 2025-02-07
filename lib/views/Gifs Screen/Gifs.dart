@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
-import 'package:reawrdapp/AdPlugin/Ads/FullScreen/Ads.dart';
+import 'package:reawrdapp/AdPlugin/AdsGridView/ads_gridview.dart';
+import '../../AdPlugin/Ads/FullScreen/Ads.dart';
 import '../../AdPlugin/Ads/Native/NativeRN.dart';
 import '../../generated/assets.dart';
 import '../../main.dart';
@@ -139,222 +140,190 @@ class _GifsScreenState extends State<GifsScreen> {
                       box.write('totalgif', allgifs.length);
 
                       return SafeArea(
-                        child: SingleChildScrollView(
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          child: Column(
-                            children: [
-                              allgifs.first.isNotEmpty
-                                  ? NativeRN(parentContext: context)
-                                  : SizedBox(),
-                              SizedBox(
-                                height: (allgifs.length / 2).ceil() * 200.r,
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 10.r, horizontal: 10.r),
-                                  child: GridView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                    ),
-                                    itemCount: allgifs.length,
-                                    itemBuilder: (context, index) {
-                                      String uniqueKey = "$index";
-                                      print("uniqueKey == $uniqueKey");
+                        child: SizedBox(
+                          height: (allgifs.length / 2).ceil() * 200.r,
+                          // child: GridView.builder(
+                          //
+                          //
+                          //   shrinkWrap: true,
+                          //   physics:
+                          //       const NeverScrollableScrollPhysics(),
+                          //   gridDelegate:
+                          //       SliverGridDelegateWithFixedCrossAxisCount(
+                          //     crossAxisCount: 2,
+                          //   ),
+                          //   itemCount: allgifs.length,
+                          //   itemBuilder: (context, index) {
+                          //     String uniqueKey = "$index";
+                          //     print("uniqueKey == $uniqueKey");
+                          //
+                          //     bool isLocked =
+                          //         unlockGifs[uniqueKey] ?? false;
+                          child: AdsGridView(
+                            crossAxisCount: 2,
+                            itemCount: allgifs.length,
+                            adsIndex: 1,
+                            adsWidget: NativeRN(parentContext: context),
 
-                                      bool isLocked =
-                                          unlockGifs[uniqueKey] ?? false;
+                            itemPadding: EdgeInsets.all(10.r),
+                            itemWidget: (BuildContext context, int index) {
+                              String uniqueKey = "$index";
+                              print("uniqueKey == $uniqueKey");
+                              bool isLocked = unlockGifs[uniqueKey] ?? false;
 
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 6.r, right: 6.r, top: 7.r),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(22.r),
-                                            border: Border.all(
-                                                width: 3.r,
-                                                color: Colors.black),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.black,
-                                                offset: Offset(6.r, 6.r),
-                                                blurRadius: 10.r,
+                              return Padding(
+                                padding:  EdgeInsets.only(right:6.r,left: 6.r,top: 5.r),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(22.r),
+                                    border: Border.all(
+                                        width: 3.r, color: Colors.black),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(6.r, 6.r),
+                                        blurRadius: 10.r,
+                                      ),
+                                    ],
+                                  ),
+
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      AdsRN().showFullScreen(
+                                          context: context,
+                                          onComplete: () {
+                                            Get.to(() => GifsDetailScreen(),
+                                                arguments: {
+                                                  'Gifs': allgifs[index]
+                                                });
+                                          });
+                                    },
+                                    child: Stack(children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(18.r),
+                                          border: Border.all(
+                                              width: 3.r, color: Colors.black),
+                                        ),
+                                        margin: EdgeInsets.all(4.r),
+                                        child: Center(
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 12.r),
+                                            child: CachedNetworkImage(
+                                              placeholder: (context, url) =>
+                                                  LoadingAnimationWidget
+                                                      .threeArchedCircle(
+                                                color: Colors.black45,
+                                                size: 20.sp,
                                               ),
-                                            ],
+                                              imageUrl:
+                                                  allgifs[index].toString(),
+                                            ),
                                           ),
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: 3.r, horizontal: 5.r),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              AdsRN().showFullScreen(
-                                                  context: context,
-                                                  onComplete: () {
-                                                    Get.to(
-                                                        () =>
-                                                            GifsDetailScreen(),
-                                                        arguments: {
-                                                          'Gifs': allgifs[index]
-                                                        });
+                                        ),
+                                      ),
+                                      isLocked
+                                          ? SizedBox()
+                                          : Positioned(
+                                              top: 5.r,
+                                              right: 5.r,
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  if (controller
+                                                          .totalCoins.value <
+                                                      150) {
+                                                    Get.snackbar(
+                                                      "Not Enough Tokens",
+                                                      "You need at least 150 tokens to unlock this GIF.",
+                                                      snackPosition:
+                                                          SnackPosition.TOP,
+                                                      duration: const Duration(
+                                                          seconds: 3),
+                                                      icon: Icon(
+                                                          Icons.cancel_outlined,
+                                                          color: Colors.white),
+                                                      padding:
+                                                          EdgeInsets.all(10.r),
+                                                      margin:
+                                                          EdgeInsets.all(10.r),
+                                                      forwardAnimationCurve:
+                                                          Curves.easeOutBack,
+                                                      backgroundColor:
+                                                          Colors.red,
+                                                      colorText: Colors.white,
+                                                    );
+
+                                                    return;
+                                                  }
+
+                                                  setState(() {
+                                                    unlockGifs[uniqueKey] =
+                                                        true;
+                                                    box.write("unlockGifs",
+                                                        unlockGifs);
                                                   });
-                                            },
-                                            child: Stack(children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          18.r),
-                                                  border: Border.all(
-                                                      width: 3.r,
-                                                      color: Colors.black),
-                                                ),
-                                                margin: EdgeInsets.all(4.r),
-                                                child: Center(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 12.r),
-                                                    child: CachedNetworkImage(
-                                                      placeholder: (context,
-                                                              url) =>
-                                                          LoadingAnimationWidget
-                                                              .threeArchedCircle(
-                                                        color: Colors.black45,
-                                                        size: 20.sp,
+
+                                                  final gifsController =
+                                                      Get.put(GifsController());
+                                                  gifsController.unlockedGifs(
+                                                      controller.rewardCoins);
+                                                },
+                                                child: Container(
+                                                  height: 140.r,
+                                                  width: 130.r,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.black
+                                                        .withOpacity(0.9),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.r),
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Image.asset(
+                                                        Assets.imagesLock,
+                                                        height: 60.r,
                                                       ),
-                                                      imageUrl: allgifs[index]
-                                                          .toString(),
-                                                    ),
+                                                      8.verticalSpace,
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Image.asset(
+                                                            Assets.imagesReward,
+                                                            height: 28.r,
+                                                          ),
+                                                          4.horizontalSpace,
+                                                          Text('150 Token',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontFamily:
+                                                                      'acme',
+                                                                  fontSize:
+                                                                      23.r,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold)),
+                                                        ],
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                              isLocked
-                                                  ? SizedBox()
-                                                  : Positioned(
-                                                      top: 5.r,
-                                                      right: 5.r,
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          if (controller
-                                                                  .totalCoins
-                                                                  .value <
-                                                              150) {
-                                                            Get.snackbar(
-                                                              "Not Enough Tokens",
-                                                              "You need at least 150 tokens to unlock this GIF.",
-                                                              snackPosition:
-                                                                  SnackPosition
-                                                                      .TOP,
-                                                              duration:
-                                                                  const Duration(
-                                                                      seconds:
-                                                                          3),
-                                                              icon: Icon(
-                                                                  Icons
-                                                                      .cancel_outlined,
-                                                                  color: Colors
-                                                                      .white),
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(
-                                                                          10.r),
-                                                              margin: EdgeInsets
-                                                                  .all(10.r),
-                                                              forwardAnimationCurve:
-                                                                  Curves
-                                                                      .easeOutBack,
-                                                              backgroundColor:
-                                                                  Colors.red,
-                                                              colorText:
-                                                                  Colors.white,
-                                                            );
-
-                                                            return;
-                                                          }
-
-                                                          setState(() {
-                                                            unlockGifs[
-                                                                    uniqueKey] =
-                                                                true;
-                                                            box.write(
-                                                                "unlockGifs",
-                                                                unlockGifs);
-                                                          });
-
-                                                          final gifsController =
-                                                              Get.put(
-                                                                  GifsController());
-                                                          gifsController
-                                                              .unlockedGifs(
-                                                                  controller
-                                                                      .rewardCoins);
-                                                        },
-                                                        child: Container(
-                                                          height: 140.r,
-                                                          width: 130.r,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Colors.black
-                                                                .withOpacity(
-                                                                    0.9),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.r),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Image.asset(
-                                                                Assets
-                                                                    .imagesLock,
-                                                                height: 60.r,
-                                                              ),
-                                                              8.verticalSpace,
-                                                              Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Image.asset(
-                                                                    Assets
-                                                                        .imagesReward,
-                                                                    height:
-                                                                        28.r,
-                                                                  ),
-                                                                  4.horizontalSpace,
-                                                                  Text(
-                                                                      '150 Token',
-                                                                      style: TextStyle(
-                                                                          color: Colors
-                                                                              .white,
-                                                                          fontFamily:
-                                                                              'acme',
-                                                                          fontSize: 23
-                                                                              .r,
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                            ]),
-                                          ),
-                                        ),
-                                      );
-                                    },
+                                            ),
+                                    ]),
                                   ),
                                 ),
-                              ),
-                            ],
+                              );
+                            },
                           ),
                         ),
                       );

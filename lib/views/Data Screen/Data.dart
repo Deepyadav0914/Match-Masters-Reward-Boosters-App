@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import 'package:reawrdapp/AdPlugin/Ads/FullScreen/Ads.dart';
+import 'package:reawrdapp/AdPlugin/AdsGridView/ads_gridview.dart';
 import '../../AdPlugin/Ads/Native/NativeRN.dart';
 import '../../model/gamemodel.dart';
 import '../Details Screen/Details.dart';
@@ -56,28 +57,22 @@ class DataScreen extends StatelessWidget {
             ),
           ),
           child: SafeArea(
-            child: Column(
-              children: [
+            child:
                 controller.name == 'Tips & Tricks' || controller.name == 'FAQs'
                     ? _buildListView()
-                    : Expanded(
-                        child: GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                          ),
-                          itemCount: controller.alldata.length,
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10.r, horizontal: 15.r),
-                          itemBuilder: (context, index) {
-                            final item = controller.alldata[index];
+                    : AdsGridView(
+                        crossAxisCount: 2,
+                        itemCount: controller.alldata.length,
+                        adsIndex: 1,
+                        adsWidget: NativeRN(parentContext: context),
+                        itemMainAspectRatio: 1,
+                        padding: EdgeInsets.all(10.r),
+                        itemWidget: (context, index) {
+                          final item = controller.alldata[index];
 
-                            return _buildGridTile(item, index, context);
-                          },
-                        ),
-                      ),
-              ],
-            ),
+                          return _buildGridTile(item, index, context);
+                        },
+                        itemPadding: EdgeInsets.all(8.r)),
           ),
         ),
       ),
@@ -94,11 +89,12 @@ class DataScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = controller.alldata[index];
 
-          if (index == 2) {
-            return NativeRN(parentContext: context);
-          }
-
-          return _buildListTile(item, index, context);
+          return Column(
+            children: [
+              index == 2 ? NativeRN(parentContext: context) : SizedBox(),
+              _buildListTile(item, index, context),
+            ],
+          );
         },
       ),
     );
@@ -119,7 +115,6 @@ class DataScreen extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.symmetric(vertical: 7.r, horizontal: 7.r),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18.r),
