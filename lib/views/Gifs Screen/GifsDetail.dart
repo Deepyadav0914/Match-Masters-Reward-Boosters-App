@@ -52,7 +52,7 @@ class GifsDetailScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  90.verticalSpace,
+
                   Obx(
                     () => Center(
                       child: Padding(
@@ -65,13 +65,14 @@ class GifsDetailScreen extends StatelessWidget {
                             );
                           },
                           imageUrl: controller.stricker,
+                          height: 300.r,
                         ),
                       ),
                     ),
                   ),
-                  150.verticalSpace,
+
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 50.r),
+                    padding: EdgeInsets.symmetric(horizontal: 40.r,vertical: 180.r),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -104,14 +105,14 @@ class GifsDetailScreen extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(vertical: 5.r),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
                                     Icons.download,
                                     size: 30.r,
                                     color: Colors.blue,
                                   ),
+                                  10.horizontalSpace,
                                   Text(
                                     'Download',
                                     style: TextStyle(
