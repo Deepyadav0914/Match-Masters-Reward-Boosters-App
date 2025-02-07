@@ -96,7 +96,7 @@ class Detailscreen extends StatelessWidget {
                                   child: Text(
                                     controller.item!.title.toString(),
                                     style: TextStyle(
-                                        fontSize: 25.r,
+                                        fontSize: 27.r,
                                         fontFamily: 'acme',
                                         color: Colors.black87,
                                         shadows: [

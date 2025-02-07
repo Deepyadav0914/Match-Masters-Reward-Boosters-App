@@ -243,8 +243,14 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             'Statistics',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25.r,
+              fontSize: 27.r,
               fontFamily: 'acme',
+              shadows: [
+                Shadow(
+                    color: Colors.black,
+                    offset: Offset(1.r, 1.r),
+                    blurRadius: 3.r)
+              ],
               fontWeight: FontWeight.bold,
             ),
           ),

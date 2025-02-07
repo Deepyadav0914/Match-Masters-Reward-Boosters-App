@@ -29,7 +29,7 @@ class GifsDetailScreen extends StatelessWidget {
             'Sticker Download',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25.r,
+              fontSize: 27.r,
               fontFamily: 'acme',
               fontWeight: FontWeight.bold,
             ),

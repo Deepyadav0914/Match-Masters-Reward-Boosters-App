@@ -101,7 +101,14 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'acme',
+                          shadows: [
+                            Shadow(
+                                color: Colors.white,
+                                offset: Offset(1.r, 1.r),
+                                blurRadius: 3.r)
+                          ],
                           fontSize: 25.r,
+
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -178,7 +185,7 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Colors.grey,
-                                                blurRadius: 7.r,
+                                                blurRadius: 5.r,
                                                 offset: Offset(4.r, 3.r),
                                               ),
                                             ],

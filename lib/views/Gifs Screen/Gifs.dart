@@ -44,7 +44,7 @@ class _GifsScreenState extends State<GifsScreen> {
                 'Top GIFs',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 25.r,
+                  fontSize: 27.r,
                   shadows: [
                     Shadow(
                         color: Colors.black,
