@@ -61,23 +61,21 @@ class DataScreen extends StatelessWidget {
                 controller.name == 'Tips & Tricks' || controller.name == 'FAQs'
                     ? _buildListView()
                     : Expanded(
-                  child: GridView.builder(
-                    gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
-                    itemCount: controller.alldata.length,
-                    padding: EdgeInsets.symmetric(
-                        vertical: 10.r, horizontal: 15.r),
-                    itemBuilder: (context, index) {
-                      final item = controller.alldata[index];
-                      if (_buildListTile(item, index, context) == 2) {
-                        return NativeRnWidget();
-                      }
-                      return _buildGridTile(item, index, context);
-                    },
-                  ),
-                ),
+                        child: GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                          ),
+                          itemCount: controller.alldata.length,
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.r, horizontal: 15.r),
+                          itemBuilder: (context, index) {
+                            final item = controller.alldata[index];
+
+                            return _buildGridTile(item, index, context);
+                          },
+                        ),
+                      ),
               ],
             ),
           ),
@@ -95,9 +93,11 @@ class DataScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15.r, horizontal: 15.r),
         itemBuilder: (context, index) {
           final item = controller.alldata[index];
+
           if (index == 2) {
-            return NativeRnWidget();
+            return NativeRN(parentContext: context);
           }
+
           return _buildListTile(item, index, context);
         },
       ),
@@ -119,7 +119,7 @@ class DataScreen extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.symmetric(vertical: 7.r,horizontal: 7.r),
+      margin: EdgeInsets.symmetric(vertical: 7.r, horizontal: 7.r),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18.r),
@@ -209,17 +209,6 @@ class DataScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-// Example NativeRnWidget implementation
-class NativeRnWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(children: [
-        NativeRN(parentContext: context)]),
     );
   }
 }

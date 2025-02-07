@@ -52,7 +52,6 @@ class GifsDetailScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-
                   Obx(
                     () => Center(
                       child: Padding(
@@ -70,9 +69,9 @@ class GifsDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40.r,vertical: 180.r),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 40.r, vertical: 180.r),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
