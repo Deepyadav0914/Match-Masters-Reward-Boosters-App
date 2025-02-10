@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import '../../AdPlugin/Ads/FullScreen/Ads.dart';
+import '../../AdPlugin/Ads/Native/NativeRN.dart';
 import 'GifsDetailController.dart';
 
 class GifsDetailScreen extends StatelessWidget {
@@ -47,87 +48,91 @@ class GifsDetailScreen extends StatelessWidget {
             ),
           ),
           child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Obx(
-                  () => Center(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 60.r),
-                      child: CachedNetworkImage(
-                        placeholder: (context, url) {
-                          return LoadingAnimationWidget.threeArchedCircle(
-                            color: Colors.black45,
-                            size: 40.sp,
-                          );
-                        },
-                        imageUrl: controller.stricker,
-                        height: 300.r,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Obx(
+                    () => Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(25.r),
+                        child: CachedNetworkImage(
+                          placeholder: (context, url) {
+                            return LoadingAnimationWidget.threeArchedCircle(
+                              color: Colors.black45,
+                              size: 40.sp,
+                            );
+                          },
+                          imageUrl: controller.stricker,
+                          height: 300.r,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 40.r),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(28.r),
-                      border: Border.all(width: 3.r, color: Colors.black),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          offset: Offset(6.r, 6.r),
-                          blurRadius: 15.r,
-                        ),
-                      ],
-                    ),
-                    margin:
-                        EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
-                    child: GestureDetector(
-                      onTap: () => AdsRN().showFullScreen(
-                          context: context,
-                          onComplete: () {
-                            controller.saveGif();
-                          }),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24.r),
-                          border: Border.all(width: 3.r, color: Colors.black),
-                        ),
-                        margin: EdgeInsets.all(4.r),
-                        padding: EdgeInsets.only(bottom: 5.r),
-                        child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.r),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.download,
-                                  size: 30.r,
-                                  color: Colors.blue,
-                                ),
-                                10.horizontalSpace,
-                                Text(
-                                  'Download',
-                                  style: TextStyle(
-                                    fontSize: 25.r,
-                                    fontFamily: 'acme',
+                  controller.stricker != ''
+                      ? NativeRN(parentContext: context)
+                      : SizedBox(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40.r),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(28.r),
+                        border: Border.all(width: 3.r, color: Colors.black),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,
+                            offset: Offset(6.r, 6.r),
+                            blurRadius: 15.r,
+                          ),
+                        ],
+                      ),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
+                      child: GestureDetector(
+                        onTap: () => AdsRN().showFullScreen(
+                            context: context,
+                            onComplete: () {
+                              controller.saveGif();
+                            }),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24.r),
+                            border: Border.all(width: 3.r, color: Colors.black),
+                          ),
+                          margin: EdgeInsets.all(4.r),
+                          padding: EdgeInsets.only(bottom: 5.r),
+                          child: Center(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 5.r),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.download,
+                                    size: 30.r,
                                     color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
                                   ),
-                                ),
-                              ],
+                                  10.horizontalSpace,
+                                  Text(
+                                    'Download',
+                                    style: TextStyle(
+                                      fontSize: 25.r,
+                                      fontFamily: 'acme',
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
