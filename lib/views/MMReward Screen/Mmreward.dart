@@ -79,7 +79,6 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                   groupedData[date] = [item];
                 }
               }
-
               final claimedRewards =
                   box.read<Map<String, dynamic>>('claimedRewards') ?? {};
               print('msg==$claimedRewards');

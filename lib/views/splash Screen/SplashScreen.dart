@@ -14,17 +14,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Navigate to MenuScreen after 3 seconds using GetX
-  //   Future.delayed(const Duration(seconds: 3), () {
-  //     Get.off(
-  //       () => MenuScreen(),
-  //     );
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
