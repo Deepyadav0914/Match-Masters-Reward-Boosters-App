@@ -121,9 +121,9 @@ class Detailscreen extends StatelessWidget {
                                       ),
                                     )
                                   : SizedBox(),
-
-                              controller.item!.description!=''?NativeRN(parentContext: context):SizedBox(),
-
+                              controller.item!.description != ''
+                                  ? NativeRN(parentContext: context)
+                                  : SizedBox(),
                               controller.item!.title == ''
                                   ? Padding(
                                       padding: EdgeInsets.symmetric(

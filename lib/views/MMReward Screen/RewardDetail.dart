@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import 'package:reawrdapp/AdPlugin/Utils/Extensions.dart';
+import '../../AdPlugin/Ads/Native/NativeRN.dart';
 import '../../generated/assets.dart';
 import '../../main.dart';
 import '../Gifs Screen/GifsController.dart';
@@ -114,7 +115,9 @@ class _RewardDetailScreenState extends State<RewardDetailScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    20.verticalSpace,
+                    controller.description != ''
+                        ? NativeRN(parentContext: context)
+                        : SizedBox(),
                     Text(
                       controller.description,
                       softWrap: true,
