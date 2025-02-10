@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
+import 'package:reawrdapp/AdPlugin/Ads/Native/NativeRN.dart';
 import 'DetailscreenController.dart';
 
 class Detailscreen extends StatelessWidget {
@@ -120,6 +121,9 @@ class Detailscreen extends StatelessWidget {
                                       ),
                                     )
                                   : SizedBox(),
+
+                              controller.item!.description!=''?NativeRN(parentContext: context):SizedBox(),
+
                               controller.item!.title == ''
                                   ? Padding(
                                       padding: EdgeInsets.symmetric(
