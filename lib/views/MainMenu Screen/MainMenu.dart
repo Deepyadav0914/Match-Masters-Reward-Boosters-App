@@ -123,7 +123,7 @@ class MenuScreen extends StatelessWidget {
                                                     });
                                               } else if (index == 4) {
                                                 Get.to(() =>
-                                                    const StatisticsScreen());
+                                                     StatisticsScreen());
                                               } else if (index == 5 ||
                                                   index == 6) {
                                                 Get.to(() => DataScreen(),
