@@ -142,23 +142,6 @@ class _GifsScreenState extends State<GifsScreen> {
                       return SafeArea(
                         child: SizedBox(
                           height: (allgifs.length / 2).ceil() * 200.r,
-                          // child: GridView.builder(
-                          //
-                          //
-                          //   shrinkWrap: true,
-                          //   physics:
-                          //       const NeverScrollableScrollPhysics(),
-                          //   gridDelegate:
-                          //       SliverGridDelegateWithFixedCrossAxisCount(
-                          //     crossAxisCount: 2,
-                          //   ),
-                          //   itemCount: allgifs.length,
-                          //   itemBuilder: (context, index) {
-                          //     String uniqueKey = "$index";
-                          //     print("uniqueKey == $uniqueKey");
-                          //
-                          //     bool isLocked =
-                          //         unlockGifs[uniqueKey] ?? false;
                           child: AdsGridView(
                             crossAxisCount: 2,
                             itemCount: allgifs.length,
