@@ -47,90 +47,87 @@ class GifsDetailScreen extends StatelessWidget {
             ),
           ),
           child: SafeArea(
-            child: SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Obx(
-                    () => Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 60.r),
-                        child: CachedNetworkImage(
-                          placeholder: (context, url) {
-                            return LoadingAnimationWidget.threeArchedCircle(
-                              color: Colors.black45,
-                              size: 40.sp,
-                            );
-                          },
-                          imageUrl: controller.stricker,
-                          height: 300.r,
-                        ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Obx(
+                  () => Center(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 60.r),
+                      child: CachedNetworkImage(
+                        placeholder: (context, url) {
+                          return LoadingAnimationWidget.threeArchedCircle(
+                            color: Colors.black45,
+                            size: 40.sp,
+                          );
+                        },
+                        imageUrl: controller.stricker,
+                        height: 300.r,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 40.r, vertical: 180.r),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(28.r),
-                        border: Border.all(width: 3.r, color: Colors.black),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            offset: Offset(6.r, 6.r),
-                            blurRadius: 15.r,
-                          ),
-                        ],
-                      ),
-                      margin:
-                          EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
-                      child: GestureDetector(
-                        onTap: () => AdsRN().showFullScreen(
-                            context: context,
-                            onComplete: () {
-                              controller.saveGif();
-                            }),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(24.r),
-                            border: Border.all(width: 3.r, color: Colors.black),
-                          ),
-                          margin: EdgeInsets.all(4.r),
-                          padding: EdgeInsets.only(bottom: 5.r),
-                          child: Center(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 5.r),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.download,
-                                    size: 30.r,
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 40.r),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(28.r),
+                      border: Border.all(width: 3.r, color: Colors.black),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          offset: Offset(6.r, 6.r),
+                          blurRadius: 15.r,
+                        ),
+                      ],
+                    ),
+                    margin:
+                        EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
+                    child: GestureDetector(
+                      onTap: () => AdsRN().showFullScreen(
+                          context: context,
+                          onComplete: () {
+                            controller.saveGif();
+                          }),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24.r),
+                          border: Border.all(width: 3.r, color: Colors.black),
+                        ),
+                        margin: EdgeInsets.all(4.r),
+                        padding: EdgeInsets.only(bottom: 5.r),
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 5.r),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.download,
+                                  size: 30.r,
+                                  color: Colors.blue,
+                                ),
+                                10.horizontalSpace,
+                                Text(
+                                  'Download',
+                                  style: TextStyle(
+                                    fontSize: 25.r,
+                                    fontFamily: 'acme',
                                     color: Colors.blue,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  10.horizontalSpace,
-                                  Text(
-                                    'Download',
-                                    style: TextStyle(
-                                      fontSize: 25.r,
-                                      fontFamily: 'acme',
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

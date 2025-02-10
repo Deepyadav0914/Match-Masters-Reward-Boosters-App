@@ -5,8 +5,7 @@ import 'package:reawrdapp/AdPlugin/Ads/Banner/BannerWrapper.dart';
 import 'DetailscreenController.dart';
 
 class Detailscreen extends StatelessWidget {
-
-  static const String routeName='/Detailscreen';
+  static const String routeName = '/Detailscreen';
 
   Detailscreen({super.key});
 
@@ -112,29 +111,49 @@ class Detailscreen extends StatelessWidget {
                               controller.item!.title != ''
                                   ? Padding(
                                       padding: EdgeInsets.only(
-                                          left: 15.r, right: 15.r,bottom: 15.r),
+                                          left: 15.r,
+                                          right: 15.r,
+                                          bottom: 15.r),
                                       child: Divider(
                                         color: Colors.black,
                                         thickness: 3.r,
                                       ),
                                     )
                                   : SizedBox(),
-                              Center(
-                                child: Text(
-                                  controller.item!.description,
-                                  style: TextStyle(
-                                      fontSize: 25.r,
-                                      fontFamily: 'acme',
-                                      color: Colors.black87,
-                                      shadows: [
-                                        Shadow(
-                                            color: Colors.white,
-                                            offset: Offset(2.r, 1.r),
-                                            blurRadius: 4.r)
-                                      ],
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ),
+                              controller.item!.title == ''
+                                  ? Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 24.r),
+                                      child: Text(
+                                        controller.item!.description,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 25.r,
+                                            fontFamily: 'acme',
+                                            color: Colors.black87,
+                                            shadows: [
+                                              Shadow(
+                                                  color: Colors.white,
+                                                  offset: Offset(2.r, 1.r),
+                                                  blurRadius: 4.r)
+                                            ],
+                                            fontWeight: FontWeight.w700),
+                                      ),
+                                    )
+                                  : Text(
+                                      controller.item!.description,
+                                      style: TextStyle(
+                                          fontSize: 25.r,
+                                          fontFamily: 'acme',
+                                          color: Colors.black87,
+                                          shadows: [
+                                            Shadow(
+                                                color: Colors.white,
+                                                offset: Offset(2.r, 1.r),
+                                                blurRadius: 4.r)
+                                          ],
+                                          fontWeight: FontWeight.w700),
+                                    ),
                             ],
                           ),
                         ),

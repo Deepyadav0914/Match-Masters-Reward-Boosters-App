@@ -69,7 +69,6 @@ class DataScreen extends StatelessWidget {
                         padding: EdgeInsets.all(10.r),
                         itemWidget: (context, index) {
                           final item = controller.alldata[index];
-
                           return _buildGridTile(item, index, context);
                         },
                         itemPadding: EdgeInsets.all(8.r)),

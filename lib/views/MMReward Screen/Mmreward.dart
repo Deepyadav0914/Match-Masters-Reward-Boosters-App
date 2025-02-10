@@ -93,7 +93,7 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
 
                   return Column(
                     children: [
-                      date == '04-02-2025'
+                      date == '07-02-2025'
                           ? NativeRN(parentContext: context)
                           : SizedBox(),
                       Text(
@@ -108,11 +108,9 @@ class _MmrewardScreenState extends State<MmrewardScreen> {
                                 blurRadius: 3.r)
                           ],
                           fontSize: 25.r,
-
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      8.verticalSpace,
                       SizedBox(
                         height: (data.length / 2).ceil() * 200.r,
                         child: Padding(
