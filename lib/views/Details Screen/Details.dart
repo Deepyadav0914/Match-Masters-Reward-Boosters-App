@@ -73,7 +73,7 @@ class Detailscreen extends StatelessWidget {
                   controller.item!.image == ""
                       ? SizedBox()
                       : Padding(
-                          padding: EdgeInsets.all(10.r),
+                          padding: EdgeInsets.only(left: 10.r,right: 10.r),
                           child: Center(
                             child: Image.network(
                               controller.item!.image,
@@ -90,23 +90,20 @@ class Detailscreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Center(
-                                child: Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 20.r, right: 20.r),
-                                  child: Text(
-                                    controller.item!.title.toString(),
-                                    style: TextStyle(
-                                        fontSize: 27.r,
-                                        fontFamily: 'acme',
-                                        color: Colors.black87,
-                                        shadows: [
-                                          Shadow(
-                                              color: Colors.white,
-                                              offset: Offset(2.r, 1.r),
-                                              blurRadius: 4.r)
-                                        ],
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                child: Text(
+                                  controller.item!.title.toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 27.r,
+                                      fontFamily: 'acme',
+                                      color: Colors.black87,
+                                      shadows: [
+                                        Shadow(
+                                            color: Colors.white,
+                                            offset: Offset(2.r, 1.r),
+                                            blurRadius: 4.r)
+                                      ],
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               controller.item!.title != ''
@@ -114,7 +111,7 @@ class Detailscreen extends StatelessWidget {
                                       padding: EdgeInsets.only(
                                           left: 15.r,
                                           right: 15.r,
-                                          bottom: 15.r),
+                                         ),
                                       child: Divider(
                                         color: Colors.black,
                                         thickness: 3.r,
